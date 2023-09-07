@@ -1,49 +1,26 @@
-import React, { useState } from 'react'
+import React from "react";
+import { ListToDos } from "./list-todos";
 
-export const Content = () => {
-
-    const handleClick = (params)=>{
-        console.log(params + " Clicked")
-    }
-
-    const checkEvent = (event)=>{
-        console.log(event.target.innerText)
-    }
-
-    const[count, setCount] = useState(1)
-    const handleIncrement = () =>{
-        setCount(count+1)
-    }
-    const handleDeccrement = () =>{
-        setCount(count-1)
-    }
-
-    const[word, setWord] = useState("New")
-    const handleWords = () =>{
-        const i = Math.floor(Math.random()*5)
-        const words = ["good", "bad", "naughty", "rugged", "innocent"]
-        setWord(words[i])
-    }
-
-
+export const Content = ({
+  todos,
+  handleCheck,
+  handleDeleteTodo,
+  handleEmptyTodo,
+}) => {
   return (
-   <main>
-
-    <button onClick={() =>handleClick("Melton")}>Click</button> 
-    <br />
-    <button onClick={(event)=> checkEvent(event)}>check</button>
-    <br />
-    <button onDoubleClick={() =>handleClick("double")}>Double click</button>
-    <br />
-
-    <button onClick={handleDeccrement}>-</button>
-    <span>{count}</span>
-    <button onClick={handleIncrement}>+</button>
-    <br />
-
-    <p>I'm a {word} boy</p>
-    <button onClick={handleWords}>subscribe</button>
-    
-   </main>
-  )
-}
+    <main>
+      <ul>
+        {/* {handleEmptyTodo(todos)} */}
+        {todos.length < 1 ? (
+          <p style={{ color: "grey", fontSize: 80 }}>your ToDo's are EmPtY</p>
+        ) : (
+          <ListToDos
+            todos={todos}
+            handleCheck={handleCheck}
+            handleDeleteTodo={handleDeleteTodo}
+          />
+        )}
+      </ul>
+    </main>
+  );
+};
