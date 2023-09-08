@@ -4,7 +4,7 @@ import { Input } from "../Input-text/Input";
 import "./App.css";
 
 function App() {
-  const [inputText, setInputText] = useState();
+  const [inputText, setInputText] = useState('');
   const [isDarkColor, setIsDarkColor] = useState(true);
   return (
     <div className="App">
