@@ -14,7 +14,7 @@ export const Box = ({inputText, isDarkColor}) => {
       return (
         <div >
             <div style={divStyle}>
-              <h3>{inputText}</h3>
+              <h3 style={{marginTop:"60px", fontSize:"50px"}}>{inputText}</h3>
             </div>
         </div>
       );
