@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './input.css'
 
 export const Input = ({ inputText, setInputText, isDarkColor, setIsDarkColor }) => {
   const buttonStyle = {
@@ -31,7 +32,7 @@ export const Input = ({ inputText, setInputText, isDarkColor, setIsDarkColor }) 
         <br />
         <br />
         <button
-          style={buttonStyle}
+        className="button"
           onClick={() => setIsDarkColor(!isDarkColor)}
         >
           Toggle Text Color
