@@ -47,6 +47,16 @@
   <li>✅ Implement controlled components for color input</li>
 </ul>
 
+<!-- Branch Information -->
+<h3>Branch Information</h3>
+<p>
+  These projects are organized in different branches:
+</p>
+<ul>
+  <li><strong>Todo List App:</strong> Branch <code>Todo-list-app</code></li>
+  <li><strong>Color Palette App:</strong> Branch <code>task-1</code></li>
+</ul>
+
 <!-- Technologies Used -->
 <h2 id="technologies-used">Technologies Used</h2>
 <p>
