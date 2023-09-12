@@ -1,0 +1,20 @@
+{
+    "todos":[
+        {
+            "id": 1,
+            "checked": false,
+            "activity": "Testing"
+        },
+        {
+            "id": 2,
+            "checked": false,
+            "activity": "running"
+        },
+        {
+            "id": 3,
+            "checked": false,
+            "activity": "Sleep"
+        }
+
+    ]
+}

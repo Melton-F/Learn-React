@@ -1,17 +1,28 @@
 import Header from "./Header";
 import { Footer } from "./Footer";
 import { Content } from "./Content";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AddToDo } from "./AddToDo";
 import { SearchTodo } from "./SearchTodo";
+import axios from "axios";
 
 function App() {
-  const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem("todo_list"))
-  );
+  const apiFunction = async () => {
+    try {
+      const externalApiData = await axios.get("http://localhost:3001/todos")
+      setTodos(externalApiData.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    apiFunction()
+  }, []);
 
   const [newToDos, setNewToDos] = useState("");
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
 
   const handleCheck = (id) => {
     const alterTodos = todos.map((todo) => {
@@ -40,7 +51,6 @@ function App() {
     localStorage.setItem("todo_list", JSON.stringify(listTodo));
   };
 
-
   // const handleEmptyTodo = (params) =>{
   //     if(params.length < 1){
   //         return <h1>Your To Do are empty..!</h1>
@@ -62,12 +72,11 @@ function App() {
         setNewToDos={setNewToDos}
         handleAddButton={handleAddButton}
       />
-      <SearchTodo
-        search={search}
-        setSearch={setSearch}
-      />
+      <SearchTodo search={search} setSearch={setSearch} />
       <Content
-        todos={todos.filter((element)=>(element.activity).toLowerCase().includes(search.toLowerCase()))}
+        todos={todos.filter((element) =>
+          element.activity.toLowerCase().includes(search.toLowerCase())
+        )}
         handleCheck={handleCheck}
         handleDeleteTodo={handleDeleteTodo}
       />

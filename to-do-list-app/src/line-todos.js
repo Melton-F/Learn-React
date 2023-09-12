@@ -18,7 +18,6 @@ export const LineTodos = ({todo, handleCheck, handleDeleteTodo}) => {
                 tabIndex='0'
                 aria-label={`Delete ${todo.todo}`}
             />
-            
 
         </li>)
 }
